@@ -13,6 +13,7 @@ import { LoginComponent } from './login/login.component';
 import { EventsComponent } from './events/events.component';
 import { MembersComponent } from './members/members.component';
 import { TokenInterceptorService } from './token-interceptor.service';
+import { EventService } from './event.service';
 
 
 @NgModule({
@@ -29,7 +30,7 @@ import { TokenInterceptorService } from './token-interceptor.service';
     HttpClientModule,
     AppRoutingModule
   ],
-  providers: [AuthService,AuthGuard,
+  providers: [AuthService,EventService ,AuthGuard,
   {
     provide: HTTP_INTERCEPTORS,
     useClass: TokenInterceptorService,
