@@ -1,0 +1,11 @@
+:root {
+  --input-padding-x: .75rem;
+  --input-padding-y: .75rem;
+}
+
+html,
+body {
+  height: 100%;
+  background-color: ghostwhite;
+}
+
