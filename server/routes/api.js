@@ -2,6 +2,7 @@ const express = require('express')
 const router = express.Router()
 const User = require('../models/user')
 const Event = require('../models/event')
+const Members = require('../models/userInfo')
 const jwt = require('jsonwebtoken')
 
 const mongoose = require('mongoose')
@@ -12,9 +13,9 @@ mongoose.connect(db, err => {
     if (err) {
         console.error('Error!' + err)
     } else {
-        console.log('Connected to Mogodb')
+        console.log('Connected to Mongodb')
     }
-})
+});
 function verifyToken(req, res, next) {
     if(!req.headers.authorization) {
       return res.status(401).send('Unauthorized request')
@@ -36,21 +37,33 @@ router.get('/', (req, res) => {
 })
 
 router.post('/register', (req, res) => {
-    let userData = req.body
-    let user = new User(userData)
-    user.save((error, registeredUser) => {
+    let userData = req.body;
+    let userNew = new User(userData);
+    let userInfo = new Members(userData);
+    User.findOne({ email: userData.email }, (error, user) => {
         if (error) {
             console.log(error)
         } else {
-            let payload = { subject: registeredUser._id }
-            let token = jwt.sign(payload, 'aip')
-            res.status(200).send({ token })
+            if (!user) {
+                userNew.save((error, registeredUser) => {
+                    if (error) {
+                        console.log(error)
+                    } else {
+                        let payload = { subject: registeredUser._id };
+                        let token = jwt.sign(payload, 'aip');
+                        res.status(200).send({ token })
+                    }
+                })
+                userInfo.save();
+            } else {
+                res.status(401).send('Existed email')
+            }
         }
     })
 })
 
 router.post('/login', (req, res) => {
-    let userData = req.body
+    let userData = req.body;
 
     User.findOne({ email: userData.email }, (error, user) => {
         if (error) {
@@ -61,42 +74,23 @@ router.post('/login', (req, res) => {
             } else if (user.password !== userData.password) {
                 res.status(401).send('Invalid password')
             } else {
-                let payload = { subject: user._id }
-                let token = jwt.sign(payload, 'aip')
+                let payload = { subject: user._id };
+                let token = jwt.sign(payload, 'aip');
                 res.status(200).send({ token })
             }
         }
     })
 })
 router.get('/events', (req,res) => {
-    let events = [
-        {
-            "name": "event1",
-            "date": "01/10/2018",
-            "description": "Event1"
-        },
-        {
-            "name": "event2",
-            "date": "02/10/2018",
-            "description": "Event2"
-        },
-        {
-            "name": "event3",
-            "date": "03/10/2018",
-            "description": "Event3"
-        },
-        {
-            "name": "event4",
-            "date": "04/10/2018",
-            "description": "Event4"
-        },
-        {
-            "name": "event5",
-            "date": "05/10/2018",
-            "description": "Event5"
-        }
-    ]
-    res.json(events)
-    
+    Event.find(function (err, events) {
+        if (err) return next(err);
+        res.json(events);
+    })
 })
-module.exports = router
+router.get('/members', (req,res) => {
+    Members.find(function (err, events) {
+        if (err) return next(err);
+        res.json(events);
+    })
+})
+module.exports = router;
