@@ -1,3 +1,4 @@
+import { MemberService } from './member.service';
 import { AuthGuard } from './auth.guard';
 import { AuthService } from './auth.service';
 import { BrowserModule } from '@angular/platform-browser';
@@ -30,7 +31,7 @@ import { EventService } from './event.service';
     HttpClientModule,
     AppRoutingModule
   ],
-  providers: [AuthService,EventService ,AuthGuard,
+  providers: [AuthService,EventService,MemberService,AuthGuard,
   {
     provide: HTTP_INTERCEPTORS,
     useClass: TokenInterceptorService,
