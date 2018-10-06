@@ -1,6 +1,7 @@
 const express = require('express')
 const router = express.Router()
 const User = require('../models/user')
+const UserInfo = require('../models/userInfo')
 const Event = require('../models/event')
 const jwt = require('jsonwebtoken')
 
@@ -69,34 +70,15 @@ router.post('/login', (req, res) => {
     })
 })
 router.get('/events', (req,res) => {
-    let events = [
-        {
-            "name": "event1",
-            "date": "01/10/2018",
-            "description": "Event1"
-        },
-        {
-            "name": "event2",
-            "date": "02/10/2018",
-            "description": "Event2"
-        },
-        {
-            "name": "event3",
-            "date": "03/10/2018",
-            "description": "Event3"
-        },
-        {
-            "name": "event4",
-            "date": "04/10/2018",
-            "description": "Event4"
-        },
-        {
-            "name": "event5",
-            "date": "05/10/2018",
-            "description": "Event5"
-        }
-    ]
-    res.json(events)
-    
+    Event.find(function (err, events) {
+        if (err) return next(err);
+        res.json(events);
+      });
+})
+router.get('/members', verifyToken,(req,res) => {
+    UserInfo.find(function (err, members) {
+        if (err) return next(err);
+        res.json(members);
+      });
 })
 module.exports = router
