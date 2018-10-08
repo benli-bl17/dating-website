@@ -1,0 +1,63 @@
+
+ <div class="container-fluid">
+     <h1>User Profile</h1>
+     <form #userForm = "ngForm">
+         <div class="form-group">
+             <label class="form-label">FirstName</label>
+             <input type="text" class="form-control" name="firstName" [(ngModel)]="userInfoData.firstName">
+         </div>
+         <div class="form-group">
+            <label class="form-label">LastName:</label>
+            <input type="text" class="form-control" name="lastName" [(ngModel)]="userInfoData.lastName" >
+        </div>
+        <div class="form-group">
+                <label class="form-label">Gender:</label>
+                <select class="custom-select" name="gender" [(ngModel)]="userInfoData.gender">
+                    <option *ngFor="let gender of genders">{{gender}}</option>
+                </select>
+        </div>
+        <div class="form-group">
+            <label class="form-label">Birthday(DD/MM/YYYY):</label>
+            <input type="text" class="form-control" name="birthday" [(ngModel)]="userInfoData.dateOfBirth">
+        </div>
+        <div class="form-group">
+            <label class="form-label">Marriage Status:</label>
+            <select class="custom-select" name="marriageStatus" [(ngModel)]="userInfoData.marriageStatus">
+                <option *ngFor="let marriageStatus of marriageStatuses">{{marriageStatus}}</option>
+            </select>
+        </div>
+        <div class="form-group">
+                <label class="form-label">Education:</label>
+                <select class="custom-select" name="education" [(ngModel)]="userInfoData.education" >
+                    <option *ngFor="let edu of education">{{edu}}</option>
+                </select>
+        </div>
+        <div class="form-group">
+            <label class="form-label">Job:</label>
+            <input type="text" class="form-control" name="job" [(ngModel)]="userInfoData.job">
+        </div>
+        <div class="form-group">
+            <label class="form-label">Height(CM):</label>
+            <input type="text" class="form-control" name="height" [(ngModel)]="userInfoData.height">
+        </div>
+        <div class="form-group">
+            <label class="form-label">Weight(KG):</label>
+            <input type="text" class="form-control" name="weight" [(ngModel)]="userInfoData.weight">
+        </div>
+        <div class="form-group">
+                <label class="form-label">Location:</label>
+                <select class="custom-select" name="location" [(ngModel)]="userInfoData.location">
+                    <option *ngFor="let state of states">{{state}}</option>
+                </select>
+        </div>
+        <div class="form-group">
+            <label class="form-label">Phone:</label>
+            <input type="tel" class="form-control" name="phoneNumber" [(ngModel)]="userInfoData.phoneNumber">
+        </div>
+        <div class="form-group">
+                <label>Description:</label>
+                <textarea class="form-control" id="description" rows="3" name="description" [(ngModel)]="userInfoData.description"></textarea>
+        </div>
+        <button (click)="updateuserInfoData()" id="update_button" class="btn btn-primary" type="submit">Update</button>
+     </form>
+ </div>

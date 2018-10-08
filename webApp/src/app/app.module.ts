@@ -1,3 +1,5 @@
+import { UserInfoService } from './user-info.service';
+import { MemberService } from './member.service';
 import { AuthGuard } from './auth.guard';
 import { AuthService } from './auth.service';
 import { BrowserModule } from '@angular/platform-browser';
@@ -14,6 +16,8 @@ import { EventsComponent } from './events/events.component';
 import { MembersComponent } from './members/members.component';
 import { TokenInterceptorService } from './token-interceptor.service';
 import { EventService } from './event.service';
+import { UserInfoComponent } from './user-info/user-info.component';
+import { UserComponent } from './user/user.component';
 
 
 @NgModule({
@@ -22,7 +26,9 @@ import { EventService } from './event.service';
     RegisterComponent,
     LoginComponent,
     EventsComponent,
-    MembersComponent
+    MembersComponent,
+    UserInfoComponent,
+    UserComponent
   ],
   imports: [
     BrowserModule,
@@ -30,7 +36,7 @@ import { EventService } from './event.service';
     HttpClientModule,
     AppRoutingModule
   ],
-  providers: [AuthService,EventService ,AuthGuard,
+  providers: [AuthService,EventService,MemberService,UserInfoService,AuthGuard,
   {
     provide: HTTP_INTERCEPTORS,
     useClass: TokenInterceptorService,

@@ -17,6 +17,7 @@
     <ul class="navbar-nav">
       <a class="nav-link" *ngIf="!_authService.loggedIn()" routerLink="/login" routerLinkActive="active">Login</a>
       <a class="nav-link" *ngIf="!_authService.loggedIn()" routerLink="/register" routerLinkActive="active">Register</a>
+      <a class="nav-link" *ngIf="_authService.loggedIn()" routerLink="/userInfo" routerLinkActive="active">Hi {{userInfoData.lastName}}</a>
       <a class="nav-link" style="cursor:pointer" *ngIf="_authService.loggedIn()" (click)="_authService.logoutUser()">Logout</a>   
     </ul>
   </div>
@@ -24,3 +25,14 @@
 <div class="container">
   <router-outlet></router-outlet>
 </div>
+<!-- Footer -->
+<footer class="page-footer font-small blue">
+
+  <!-- Copyright -->
+  <div class="footer-copyright text-center py-3">© 2018 Copyright:
+    <a href="#"> Dating</a>
+  </div>
+  <!-- Copyright -->
+
+</footer>
+<!-- Footer -->

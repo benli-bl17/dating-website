@@ -1,8 +1,8 @@
 const express = require('express')
 const router = express.Router()
 const User = require('../models/user')
+const UserInfo = require('../models/userInfo')
 const Event = require('../models/event')
-const Members = require('../models/userInfo')
 const jwt = require('jsonwebtoken')
 
 const mongoose = require('mongoose')
@@ -13,9 +13,9 @@ mongoose.connect(db, err => {
     if (err) {
         console.error('Error!' + err)
     } else {
-        console.log('Connected to Mongodb')
+        console.log('Connected to Mogodb')
     }
-});
+})
 function verifyToken(req, res, next) {
     if(!req.headers.authorization) {
       return res.status(401).send('Unauthorized request')
@@ -37,27 +37,17 @@ router.get('/', (req, res) => {
 })
 
 router.post('/register', (req, res) => {
-    let userData = req.body;
-    let userNew = new User(userData);
-    let userInfo = new Members(userData);
-    User.findOne({ email: userData.email }, (error, user) => {
+    let userData = req.body
+    let user = new User(userData)
+    user.save((error, registeredUser) => {
         if (error) {
             console.log(error)
         } else {
-            if (!user) {
-                userNew.save((error, registeredUser) => {
-                    if (error) {
-                        console.log(error)
-                    } else {
-                        let payload = { subject: registeredUser._id };
-                        let token = jwt.sign(payload, 'aip');
-                        res.status(200).send({ token })
-                    }
-                })
-                userInfo.save();
-            } else {
-                res.status(401).send('Existed email')
-            }
+            let payload = { subject: registeredUser._id }
+            let token = jwt.sign(payload, 'aip')
+            let userInfo = new UserInfo ({"userId":user._id})
+            userInfo.save()
+            res.status(200).send({ token })
         }
     })
 })
@@ -73,8 +63,8 @@ router.post('/login', (req, res) => {
             } else if (user.password !== userData.password) {
                 res.status(401).send('Invalid password')
             } else {
-                let payload = { subject: user._id };
-                let token = jwt.sign(payload, 'aip');
+                let payload = { subject: user._id }
+                let token = jwt.sign(payload, 'aip')
                 res.status(200).send({ token })
             }
         }
@@ -117,12 +107,36 @@ router.get('/events', (req,res) => {
     Event.find(function (err, events) {
         if (err) return next(err);
         res.json(events);
-    })
+      });
 })
-router.get('/members', (req,res) => {
-    Members.find(function (err, events) {
+router.get('/members', verifyToken,(req,res) => {
+    UserInfo.find(function (err, members) {
         if (err) return next(err);
-        res.json(events);
-    })
+        res.json(members);
+      });
 })
-module.exports = router;
+router.get('/userInfo', verifyToken,(req,res) => {
+    let token = req.headers.authorization.split(' ')[1]
+    let payload = jwt.verify(token, 'aip')
+    req.userId = payload.subject
+    let id = req.userId
+    UserInfo.findOne({"userId":id}, function (err, userInfo) {
+        if (err) return next(err);
+        res.json(userInfo);
+      });
+})
+router.post('/userInfoUpdate',verifyToken,(req,res) => {
+    let userInfoData = req.body
+    delete userInfoData._id
+    UserInfo.findOneAndRemove({"userId":userInfoData.userId})
+    let userInfo = new UserInfo(userInfoData)
+    userInfo.save()
+})
+router.get('/user/:id',(req,res)=>{
+    let id = req.params.id
+    UserInfo.findOne({"userId":id}, function (err, userInfo) {
+        if (err) return next(err);
+        res.json(userInfo);
+      });
+})
+module.exports = router
