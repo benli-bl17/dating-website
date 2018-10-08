@@ -64,7 +64,6 @@ router.post('/register', (req, res) => {
 
 router.post('/login', (req, res) => {
     let userData = req.body;
-
     User.findOne({ email: userData.email }, (error, user) => {
         if (error) {
             console.log(error)
@@ -81,6 +80,39 @@ router.post('/login', (req, res) => {
         }
     })
 })
+
+router.post('/join', (req, res) => {
+    let join = req.body;
+    console.log(join);
+    Event.findOne({ _id: join.event }, (err, eventJoin) => {
+        if(!eventJoin){
+            console.log(join.event + "Not Found")
+        }
+        else{
+            eventJoin.members.push(join.user);
+            eventJoin.amount = eventJoin.members.length;
+            eventJoin.save();
+        }
+    })
+})
+router.post('/quit', (req, res) => {
+    let quit = req.body;
+    console.log("quit" + quit);
+    Event.findOne({ _id: quit.event }, (err, eventQuit) => {
+        if(!eventQuit){
+            console.log(quit.event + "Not Found")
+        }
+        else {
+            if ( eventQuit.members.indexOf(quit.user) != -1) {
+            eventQuit.members.splice(eventQuit.members.indexOf(quit.user), 1);
+            eventQuit.amount = eventQuit.members.length;
+            eventQuit.save();
+            console.log("delete");
+            }
+        }
+    })
+})
+
 router.get('/events', (req,res) => {
     Event.find(function (err, events) {
         if (err) return next(err);
