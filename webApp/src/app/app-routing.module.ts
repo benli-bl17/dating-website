@@ -5,6 +5,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { EventsComponent } from './events/events.component';
 import { MembersComponent } from './members/members.component';
+import {ChatroomComponent} from "./chatroom/chatroom.component";
 
 const routes: Routes = [
   {
@@ -28,6 +29,10 @@ const routes: Routes = [
   {
     path: 'register',
     component:RegisterComponent
+  },
+  {
+    path: 'chatroom',
+    component:ChatroomComponent
   }
 ];
 

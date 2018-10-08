@@ -14,6 +14,8 @@ import { EventsComponent } from './events/events.component';
 import { MembersComponent } from './members/members.component';
 import { TokenInterceptorService } from './token-interceptor.service';
 import { EventService } from './event.service';
+import { ChatroomComponent } from './chatroom/chatroom.component';
+import {WebsocketService} from "./websocket.service";
 
 
 @NgModule({
@@ -22,7 +24,8 @@ import { EventService } from './event.service';
     RegisterComponent,
     LoginComponent,
     EventsComponent,
-    MembersComponent
+    MembersComponent,
+    ChatroomComponent
   ],
   imports: [
     BrowserModule,
@@ -30,7 +33,7 @@ import { EventService } from './event.service';
     HttpClientModule,
     AppRoutingModule
   ],
-  providers: [AuthService,EventService ,AuthGuard,
+  providers: [AuthService,EventService ,AuthGuard,WebsocketService,
   {
     provide: HTTP_INTERCEPTORS,
     useClass: TokenInterceptorService,
