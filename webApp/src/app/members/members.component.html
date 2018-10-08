@@ -1,7 +1,10 @@
 <div class="row mt-5">
-  <div class="col-md-4 mb-3" *ngFor="let member of members">
-    {{member.firstName}}
-    {{member.lastName}}
-    {{member.phoneNumber}}
-  </div>
+    <div class="card"  *ngFor="let member of members">
+        <img class="card-img-top" src="http://bpic.588ku.com/element_pic/01/48/84/81574442cdf2061.jpg" alt="user">
+        <div class="card-body">
+          <h5 class="card-title">{{member.firstName}} {{member.lastName}} </h5>
+          <p class="card-text">{{member.age}} {{member.gender}}<br> {{member.location}}<br>{{member.job}}</p>
+          <a class="nav-link"  [routerLink]="['/user', member.userId]" class="btn btn-primary">View</a>
+        </div>
+    </div>
 </div>
