@@ -17,6 +17,7 @@ Yilun Chen 12781961</br>
 Bin Li 12520817</br>
 
 ## Database
+Run `node server.js` for a express server.
 This project uses mongodb to set up the database and uses mongoose help manage the data.
 
 ## Development server
