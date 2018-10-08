@@ -3,12 +3,19 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const userInfoSchema = new Schema({
-    userName: String,
-    gender: String,
-    language: String,
-    email: String,
-    City: String,
-    photo: String,
+    userId:String,
+    firstName:String,
+    lastName:String,
+    gender:String,
+    dateOfBirth:String,
+    marriageStatus:String,
+    education: String,
+    job:String,
+    height:Number,
+    weight:Number,
+    location:String,
+    phoneNumber:Number,
+    description:String
 });
 
-module.exports = mongoose.model('userInfo', userInfoSchema, 'userInfo');
+module.exports = mongoose.model('userInfo', userInfoSchema, 'usersInfo');
