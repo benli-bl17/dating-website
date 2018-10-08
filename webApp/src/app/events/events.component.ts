@@ -28,12 +28,13 @@ export class EventsComponent implements OnInit {
     this._eventService.getEvents()
       .subscribe(
         res => {this.events = res;
-        this.subscribeToData();})
+        // this.subscribeToData();
+        })
     }
 
-  private subscribeToData(): void {
-    timer(5000).subscribe(() => this.refreshData());
-  }
+  // private subscribeToData(): void {
+  //   timer(5000).subscribe(() => this.refreshData());
+  // }
 
   join(event) {
     if(this._authService.loggedIn()){
@@ -42,7 +43,8 @@ export class EventsComponent implements OnInit {
       this._eventService.join(this.userJoin).subscribe(
         res => this.userJoin = res
       )
-      console.log("joined")
+      console.log("joined");
+      window.location.reload()
     } else {
       this._router.navigate(['./login'])
     }
@@ -53,6 +55,7 @@ export class EventsComponent implements OnInit {
     this._eventService.quit(this.userQuit).subscribe(
       res => this.userQuit = res
     )
-    console.log("quit")
+    console.log("quit");
+    window.location.reload()
   }
 }
