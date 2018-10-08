@@ -45,6 +45,8 @@ router.post('/register', (req, res) => {
         } else {
             let payload = { subject: registeredUser._id }
             let token = jwt.sign(payload, 'aip')
+            let userInfo = new UserInfo ({"userId":user._id})
+            userInfo.save()
             res.status(200).send({ token })
         }
     })
@@ -79,6 +81,30 @@ router.get('/members', verifyToken,(req,res) => {
     UserInfo.find(function (err, members) {
         if (err) return next(err);
         res.json(members);
+      });
+})
+router.get('/userInfo', verifyToken,(req,res) => {
+    let token = req.headers.authorization.split(' ')[1]
+    let payload = jwt.verify(token, 'aip')
+    req.userId = payload.subject
+    let id = req.userId
+    UserInfo.findOne({"userId":id}, function (err, userInfo) {
+        if (err) return next(err);
+        res.json(userInfo);
+      });
+})
+router.post('/userInfoUpdate',verifyToken,(req,res) => {
+    let userInfoData = req.body
+    delete userInfoData._id
+    UserInfo.findOneAndRemove({"userId":userInfoData.userId})
+    let userInfo = new UserInfo(userInfoData)
+    userInfo.save()
+})
+router.get('/user/:id',(req,res)=>{
+    let id = req.params.id
+    UserInfo.findOne({"userId":id}, function (err, userInfo) {
+        if (err) return next(err);
+        res.json(userInfo);
       });
 })
 module.exports = router
