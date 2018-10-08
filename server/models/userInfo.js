@@ -10,10 +10,12 @@ const userInfoSchema = new Schema({
     dateOfBirth:String,
     marriageStatus:String,
     education: String,
+    job:String,
     height:Number,
     weight:Number,
     location:String,
-    phoneNumber:Number
+    phoneNumber:Number,
+    description:String
 });
 
-module.exports = mongoose.model('userInfo', userInfoSchema, 'userInfo');
+module.exports = mongoose.model('userInfo', userInfoSchema, 'usersInfo');
