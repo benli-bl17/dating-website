@@ -2,7 +2,6 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 
-
 @Injectable()
 export class AuthService {
 
@@ -18,6 +17,7 @@ export class AuthService {
   logoutUser(){
     localStorage.removeItem('token')
     this._router.navigate(['/events'])
+    window.location.reload();
   }
 
   registerUser(user) {
