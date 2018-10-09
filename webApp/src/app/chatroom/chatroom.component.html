@@ -6,7 +6,7 @@
   </ul>
   <div id="form">
 
-    <input #box (keyup.enter)="sendMessage(userInfoData.lastName)" [(ngModel)]="message"  />
-    <button   (click)="sendMessage(userInfoData.lastName)" class="btn btn-warning">Send</button>
+    <input #box (keyup.enter)="sendMessage(userInfoData.firstName)" [(ngModel)]="message"  />
+    <button   (click)="sendMessage(userInfoData.firstName)" class="btn btn-warning">Send</button>
   </div>
 </div>

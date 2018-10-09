@@ -46,14 +46,20 @@ export class EventsComponent implements OnInit {
 
   join(event,user) {
     if(this._authService.loggedIn()){
-      console.log(this.userInfoData);
-      this.userJoin.event = event;
-      this.userJoin.user = user;
-      this._eventService.join(this.userJoin).subscribe(
-        res => this.userJoin = res
-      )
-      console.log("joined");
-      window.location.reload()
+      if(!user){
+        alert("Please edit your profile! Add your first name!");
+        this._router.navigate(['./userInfo'])
+      }
+      else {
+        console.log(this.userInfoData);
+        this.userJoin.event = event;
+        this.userJoin.user = user;
+        this._eventService.join(this.userJoin).subscribe(
+          res => this.userJoin = res
+        )
+        console.log("joined");
+        window.location.reload()
+      }
     } else {
       this._router.navigate(['./login'])
     }

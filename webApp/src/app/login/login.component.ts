@@ -19,10 +19,17 @@ export class LoginComponent implements OnInit {
     this._auth.loginUser(this.loginUserData)
       .subscribe(
         res => {
-          console.log(res)
-          localStorage.setItem('token', res.token)
-          this._router.navigate(['/members'])
-          window.location.reload();
+          if( res == "Invalid email"){
+            alert("Email does not exist")
+          }
+          else if (res == "Invalid password") {
+            alert("Invalid password")
+          }
+          else {
+            localStorage.setItem('token', res.token)
+            this._router.navigate(['/members'])
+            window.location.reload();
+          }
         },
         err => console.log(err)
       )
