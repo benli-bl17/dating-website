@@ -16,16 +16,29 @@ export class RegisterComponent implements OnInit {
   ngOnInit() {
   }
 
-  registerUser() {
-    this._auth.registerUser(this.registerUserData)
-    .subscribe(
-      res => {
-        console.log(res)
-        localStorage.setItem('token', res.token)
-        this._router.navigate(['/members'])
-      },
-      err => console.log(err)
-    )      
+  registerUser(email,password) {
+    const reg = /^\w+((-\w+)|(\.\w+))*\@[A-Za-z0-9]+((\.|-)[A-Za-z0-9]+)*\.[A-Za-z0-9]+$/;
+    if (email != "") {
+      if (reg.test(email) && password != "") {
+        this._auth.registerUser(this.registerUserData)
+          .subscribe(
+            res => {
+              console.log(res)
+              localStorage.setItem('token', res.token)
+              this._router.navigate(['/members'])
+            },
+            err => console.log(err)
+          )
+      }
+      else if (password=="") {
+        alert("Password can't be empty")
+      }
+      else{
+        alert("Invalid Email")
+      }
+    }
+    else {
+      alert("Email can't be empty")
+    }
   }
-
 }
