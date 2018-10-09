@@ -67,9 +67,9 @@ router.post('/login', (req, res) => {
             console.log(error)
         } else {
             if (!user) {
-                res.status(401).send('Invalid email')
+                res.json("Invalid email")
             } else if (user.password !== userData.password) {
-                res.status(401).send('Invalid password')
+                res.json("Invalid password")
             } else {
                 let payload = { subject: user._id }
                 let token = jwt.sign(payload, 'aip')
