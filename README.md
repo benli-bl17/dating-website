@@ -1,5 +1,3 @@
-
-
 # Dating-website
 This project sets up a website for programmers to make friends. 
 
@@ -65,7 +63,6 @@ For example, the class name defined by `app.module.ts` is `AppModule`.<br/>
 
 
   
-
 
 
 

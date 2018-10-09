@@ -16,14 +16,9 @@ import { EventsComponent } from './events/events.component';
 import { MembersComponent } from './members/members.component';
 import { TokenInterceptorService } from './token-interceptor.service';
 import { EventService } from './event.service';
-
-import { ChatroomComponent } from './chatroom/chatroom.component';
-import {WebsocketService} from "./websocket.service";
-
 import { UserInfoComponent } from './user-info/user-info.component';
 import { UserComponent } from './user/user.component';
 import { FooterComponent } from './footer/footer.component';
-
 
 
 @NgModule({
@@ -33,7 +28,6 @@ import { FooterComponent } from './footer/footer.component';
     LoginComponent,
     EventsComponent,
     MembersComponent,
-    ChatroomComponent
     UserInfoComponent,
     UserComponent,
     FooterComponent
@@ -44,7 +38,7 @@ import { FooterComponent } from './footer/footer.component';
     HttpClientModule,
     AppRoutingModule
   ],
-  providers: [AuthService,EventService,MemberService,UserInfoService,AuthGuard,WebsocketService,
+  providers: [AuthService,EventService,MemberService,UserInfoService,AuthGuard,
   {
     provide: HTTP_INTERCEPTORS,
     useClass: TokenInterceptorService,
