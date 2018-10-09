@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { AuthService } from './auth.service';
+import { UserInfoService } from './user-info.service';
 
 @Component({
   selector: 'app-root',
@@ -8,6 +9,13 @@ import { AuthService } from './auth.service';
 })
 export class AppComponent {
   title = 'webApp';
-
-  constructor(private _authService: AuthService){}
+  userInfoData=[]
+  constructor(private _authService: AuthService, private _userInfoService:UserInfoService){}
+  ngOnInit() {
+    this._userInfoService.getUserInfo()
+    .subscribe(
+      res => this.userInfoData = res,
+      err => console.log(err)
+    )
+  }
 }

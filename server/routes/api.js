@@ -1,6 +1,7 @@
 const express = require('express')
 const router = express.Router()
 const User = require('../models/user')
+const UserInfo = require('../models/userInfo')
 const Event = require('../models/event')
 const jwt = require('jsonwebtoken')
 const io = require('socket.io')()
@@ -46,14 +47,15 @@ router.post('/register', (req, res) => {
         } else {
             let payload = { subject: registeredUser._id }
             let token = jwt.sign(payload, 'aip')
+            let userInfo = new UserInfo ({"userId":user._id})
+            userInfo.save()
             res.status(200).send({ token })
         }
     })
 })
 
 router.post('/login', (req, res) => {
-    let userData = req.body
-
+    let userData = req.body;
     User.findOne({ email: userData.email }, (error, user) => {
         if (error) {
             console.log(error)
@@ -70,36 +72,74 @@ router.post('/login', (req, res) => {
         }
     })
 })
-router.get('/events', (req,res) => {
-    let events = [
-        {
-            "name": "event1",
-            "date": "01/10/2018",
-            "description": "Event1"
-        },
-        {
-            "name": "event2",
-            "date": "02/10/2018",
-            "description": "Event2"
-        },
-        {
-            "name": "event3",
-            "date": "03/10/2018",
-            "description": "Event3"
-        },
-        {
-            "name": "event4",
-            "date": "04/10/2018",
-            "description": "Event4"
-        },
-        {
-            "name": "event5",
-            "date": "05/10/2018",
-            "description": "Event5"
+
+router.post('/join', (req, res) => {
+    let join = req.body;
+    console.log(join);
+    Event.findOne({ _id: join.event }, (err, eventJoin) => {
+        if(!eventJoin){
+            console.log(join.event + "Not Found")
         }
-    ]
-    res.json(events)
-    
+        else{
+            eventJoin.members.push(join.user);
+            eventJoin.amount = eventJoin.members.length;
+            eventJoin.save();
+        }
+    })
+})
+router.post('/quit', (req, res) => {
+    let quit = req.body;
+    console.log("quit" + quit);
+    Event.findOne({ _id: quit.event }, (err, eventQuit) => {
+        if(!eventQuit){
+            console.log(quit.event + "Not Found")
+        }
+        else {
+            if ( eventQuit.members.indexOf(quit.user) != -1) {
+            eventQuit.members.splice(eventQuit.members.indexOf(quit.user), 1);
+            eventQuit.amount = eventQuit.members.length;
+            eventQuit.save();
+            console.log("delete");
+            }
+        }
+    })
+})
+
+router.get('/events', (req,res) => {
+    Event.find(function (err, events) {
+        if (err) return next(err);
+        res.json(events);
+      });
+})
+router.get('/members', verifyToken,(req,res) => {
+    UserInfo.find(function (err, members) {
+        if (err) return next(err);
+        res.json(members);
+      });
+})
+router.get('/userInfo', verifyToken,(req,res) => {
+    let token = req.headers.authorization.split(' ')[1]
+    let payload = jwt.verify(token, 'aip')
+    req.userId = payload.subject
+    let id = req.userId
+    UserInfo.findOne({"userId":id}, function (err, userInfo) {
+        if (err) return next(err);
+        res.json(userInfo);
+      });
+})
+router.post('/userInfoUpdate',verifyToken,(req,res) => {
+    let userInfoData = req.body
+    delete userInfoData._id
+    UserInfo.findOneAndRemove({"userId":userInfoData.userId})
+    let userInfo = new UserInfo(userInfoData)
+    userInfo.save()
+})
+router.get('/user/:id',(req,res)=>{
+    let id = req.params.id
+    UserInfo.findOne({"userId":id}, function (err, userInfo) {
+        if (err) return next(err);
+        res.json(userInfo);
+      });
 })
 
 module.exports = router

@@ -4,10 +4,15 @@
       <div class="card-body">
         <h5 class="card-title">{{event.name}}</h5>
         <p class="card-text">{{event.description}}</p>
-        <a href="#" class="btn btn-primary">JOIN</a>
+        <p class="card-text">Number of members: {{event.amount}}</p>
+        <p class="card-text">Members: {{event.members}}</p>
+        <p class="card-text">Date: {{event.date}}</p>
+        <p class="card-text">Time: {{event.time}}</p>
+        <p class="card-text">Location: {{event.location}}</p>
       </div>
       <div class="card-footer text-muted">
-        {{event.date | date:'shortDate'}}
+        <button *ngIf="!event.members.includes(user)" (click)="join(event._id)" id="join" class="btn btn-lg btn-primary btn-block" type="submit" >Join</button>
+        <button *ngIf="event.members.includes(user)" (click)="quit(event._id)" id="quit" class="btn btn-lg btn-primary btn-block " type="submit">Quit</button>
       </div>
     </div>
   </div>
