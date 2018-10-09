@@ -59,11 +59,11 @@ export class UserInfoComponent implements OnInit {
     .subscribe(
       res => {
         console.log(res)
-        alert('Successful')
       },
       err => console.log(err)
     )
     alert("Update Successfully")
+    window.location.reload();
   }
 
 }

@@ -23,9 +23,13 @@ export class RegisterComponent implements OnInit {
         this._auth.registerUser(this.registerUserData)
           .subscribe(
             res => {
-              console.log(res)
-              localStorage.setItem('token', res.token)
-              this._router.navigate(['/members'])
+              if (res == "User Existed"){
+                alert("Register Failed. User Existed!")
+              }
+              else {
+                localStorage.setItem('token', res.token)
+                this._router.navigate(['/members'])
+              }
             },
             err => console.log(err)
           )
