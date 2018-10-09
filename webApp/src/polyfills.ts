@@ -1,3 +1,5 @@
+// Add global to window, assigning the value of window itself.
+(window as any).global = window;
 /**
  * This file includes polyfills needed by Angular and is loaded before the app.
  * You can add your own extra polyfills to this file.

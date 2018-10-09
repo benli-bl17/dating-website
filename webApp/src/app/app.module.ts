@@ -6,7 +6,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
-
+import { WebsocketService } from "./websocket.service";
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -19,6 +19,7 @@ import { EventService } from './event.service';
 import { UserInfoComponent } from './user-info/user-info.component';
 import { UserComponent } from './user/user.component';
 import { FooterComponent } from './footer/footer.component';
+import { ChatroomComponent } from './chatroom/chatroom.component';
 
 
 @NgModule({
@@ -30,7 +31,8 @@ import { FooterComponent } from './footer/footer.component';
     MembersComponent,
     UserInfoComponent,
     UserComponent,
-    FooterComponent
+    FooterComponent,
+    ChatroomComponent
   ],
   imports: [
     BrowserModule,
@@ -38,7 +40,7 @@ import { FooterComponent } from './footer/footer.component';
     HttpClientModule,
     AppRoutingModule
   ],
-  providers: [AuthService,EventService,MemberService,UserInfoService,AuthGuard,
+  providers: [AuthService,EventService,MemberService,UserInfoService,AuthGuard,WebsocketService,
   {
     provide: HTTP_INTERCEPTORS,
     useClass: TokenInterceptorService,
