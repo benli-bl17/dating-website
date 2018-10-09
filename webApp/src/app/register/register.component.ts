@@ -19,7 +19,7 @@ export class RegisterComponent implements OnInit {
   registerUser(email,password) {
     const reg = /^\w+((-\w+)|(\.\w+))*\@[A-Za-z0-9]+((\.|-)[A-Za-z0-9]+)*\.[A-Za-z0-9]+$/;
     if (email != "") {
-      if (reg.test(email) && password != "") {
+      if (reg.test(email) && password) {
         this._auth.registerUser(this.registerUserData)
           .subscribe(
             res => {
@@ -30,7 +30,7 @@ export class RegisterComponent implements OnInit {
             err => console.log(err)
           )
       }
-      else if (password=="") {
+      else if (!password) {
         alert("Password can't be empty")
       }
       else{

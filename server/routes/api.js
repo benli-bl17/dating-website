@@ -110,9 +110,20 @@ router.get('/events', (req,res) => {
       });
 })
 router.get('/members', verifyToken,(req,res) => {
+    let memberNew = [];
+    let token = req.headers.authorization.split(' ')[1]
+    let payload = jwt.verify(token, 'aip')
+    req.userId = payload.subject
     UserInfo.find(function (err, members) {
         if (err) return next(err);
-        res.json(members);
+        members.forEach(function(eachMember){
+           if(eachMember.lastName){
+               if(eachMember.userId != req.userId){
+                   memberNew.push(eachMember);
+               }
+           }
+        });
+        res.json(memberNew);
       });
 })
 router.get('/userInfo', verifyToken,(req,res) => {

@@ -19,10 +19,12 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="153">
               <caret line="9" selection-start-line="9" selection-end-line="9" />
+
             </state>
           </provider>
         </entry>
       </file>
+
       <file leaf-file-name="chatroom.component.ts" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/webApp/src/app/chatroom/chatroom.component.ts">
           <provider selected="true" editor-type-id="text-editor">
@@ -30,11 +32,13 @@
               <caret line="19" column="46" selection-start-line="19" selection-start-column="46" selection-end-line="19" selection-end-column="46" />
               <folding>
                 <element signature="e#0#61#0" expanded="true" />
+
               </folding>
             </state>
           </provider>
         </entry>
       </file>
+
       <file leaf-file-name="app.module.ts" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/webApp/src/app/app.module.ts">
           <provider selected="true" editor-type-id="text-editor">
@@ -42,29 +46,35 @@
               <caret line="42" column="96" selection-start-line="42" selection-start-column="96" selection-end-line="42" selection-end-column="96" />
               <folding>
                 <element signature="e#0#54#0" expanded="true" />
+
               </folding>
             </state>
           </provider>
         </entry>
       </file>
+
       <file leaf-file-name="polyfills.ts" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/webApp/src/polyfills.ts">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="17">
               <caret line="1" column="32" selection-start-line="1" selection-start-column="32" selection-end-line="1" selection-end-column="32" />
+
             </state>
           </provider>
         </entry>
       </file>
+
       <file leaf-file-name="app-routing.module.ts" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/webApp/src/app/app-routing.module.ts">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="326">
               <caret line="44" column="31" selection-start-line="44" selection-start-column="31" selection-end-line="44" selection-end-column="31" />
+
             </state>
           </provider>
         </entry>
       </file>
+
       <file leaf-file-name="websocket.service.ts" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/webApp/src/app/websocket.service.ts">
           <provider selected="true" editor-type-id="text-editor">
@@ -72,29 +82,35 @@
               <caret line="31" selection-start-line="31" selection-end-line="31" />
               <folding>
                 <element signature="e#0#43#0" expanded="true" />
+
               </folding>
             </state>
           </provider>
         </entry>
       </file>
+
       <file leaf-file-name="websocketServer.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/server/websocketServer.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="357">
               <caret line="21" selection-start-line="21" selection-end-line="21" />
+
             </state>
           </provider>
         </entry>
       </file>
+
       <file leaf-file-name="chatroom.component.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/webApp/src/app/chatroom/chatroom.component.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="204">
               <caret line="12" selection-start-line="12" selection-end-line="12" />
+
             </state>
           </provider>
         </entry>
       </file>
+
       <file leaf-file-name="register.component.ts" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/webApp/src/app/register/register.component.ts">
           <provider selected="true" editor-type-id="text-editor">
@@ -102,16 +118,19 @@
               <caret line="24" column="20" selection-start-line="24" selection-start-column="20" selection-end-line="24" selection-end-column="20" />
               <folding>
                 <element signature="e#0#48#0" expanded="true" />
+
               </folding>
             </state>
           </provider>
         </entry>
       </file>
+
       <file leaf-file-name="app.component.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/webApp/src/app/app.component.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="380">
               <caret line="23" column="63" selection-start-line="23" selection-start-column="63" selection-end-line="23" selection-end-column="63" />
+
               <folding>
                 <element signature="n#style#0;n#nav#0;n#!!top" expanded="true" />
               </folding>
@@ -156,14 +175,13 @@
         <option value="$PROJECT_DIR$/server/models/friend.js" />
         <option value="$PROJECT_DIR$/webApp/src/app/members.service.ts" />
         <option value="$PROJECT_DIR$/webApp/src/app/event.service.ts" />
-        <option value="$PROJECT_DIR$/webApp/src/app/auth.service.ts" />
         <option value="$PROJECT_DIR$/server/models/event.js" />
-        <option value="$PROJECT_DIR$/server/routes/api.js" />
         <option value="$PROJECT_DIR$/webApp/src/app/events/events.component.ts" />
         <option value="$PROJECT_DIR$/webApp/src/app/events/events.component.html" />
         <option value="$PROJECT_DIR$/webApp/src/app/login/login.component.ts" />
         <option value="$PROJECT_DIR$/webApp/src/app/login/login.component.html" />
         <option value="$PROJECT_DIR$/webApp/src/app/register/register.component.html" />
+
         <option value="$PROJECT_DIR$/webApp/src/app/register/register.component.ts" />
         <option value="$PROJECT_DIR$/webApp/src/app/chatroom/chatroom.component.css" />
         <option value="$PROJECT_DIR$/webApp/src/app/chatroom/chatroom.component.html" />
@@ -174,6 +192,7 @@
         <option value="$PROJECT_DIR$/webApp/src/polyfills.ts" />
         <option value="$PROJECT_DIR$/webApp/src/app/chatroom/chatroom.component.ts" />
         <option value="$PROJECT_DIR$/webApp/src/app/app.component.html" />
+
       </list>
     </option>
   </component>
@@ -193,10 +212,12 @@
       <path value="$PROJECT_DIR$/webApp/package.json" />
     </packageJsonPaths>
   </component>
+
   <component name="ProjectFrameBounds" extendedState="6" fullScreen="true">
     <option name="x" value="266" />
     <option name="width" value="1174" />
     <option name="height" value="900" />
+
   </component>
   <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="1" id="Add" />
@@ -249,7 +270,9 @@
               <item name="webApp" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="app" type="462c0819:PsiDirectoryNode" />
+
               <item name="chatroom" type="462c0819:PsiDirectoryNode" />
+
             </path>
           </expand>
           <select />
@@ -292,8 +315,10 @@
       <updated>1538571794521</updated>
       <workItem from="1538571796417" duration="2106000" />
       <workItem from="1538626073852" duration="10485000" />
+
       <workItem from="1538912319200" duration="37584000" />
       <workItem from="1539063882348" duration="1433000" />
+
     </task>
     <task id="LOCAL-00001" summary="create friend and userInfo models&#10;modify register api&#10;generate members service">
       <created>1538634861688</created>
@@ -323,12 +348,14 @@
       <option name="project" value="LOCAL" />
       <updated>1539060121095</updated>
     </task>
+
     <task id="LOCAL-00005" summary="read userName from user information&#10;join and quit with the logged user name">
       <created>1539065270485</created>
       <option name="number" value="00005" />
       <option name="presentableId" value="LOCAL-00005" />
       <option name="project" value="LOCAL" />
       <updated>1539065270485</updated>
+
     </task>
     <option name="localTasksCounter" value="6" />
     <servers />
@@ -397,7 +424,8 @@
     <MESSAGE value="add join and quit function to event component&#10;make the event component update every 5 seconds&#10;make join function only available when logged in" />
     <MESSAGE value="Change refresh page every 5 seconds to reload when clicking button&#10;Reload page when logging out &#10;Add location to events" />
     <MESSAGE value="read userName from user information&#10;join and quit with the logged user name" />
-    <option name="LAST_COMMIT_MESSAGE" value="read userName from user information&#10;join and quit with the logged user name" />
+    <MESSAGE value="validate email and password" />
+    <option name="LAST_COMMIT_MESSAGE" value="validate email and password" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -596,16 +624,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/webApp/src/app/event.service.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="16" column="14" lean-forward="true" selection-start-line="16" selection-start-column="14" selection-end-line="16" selection-end-column="14" />
-          <folding>
-            <element signature="e#0#50#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/server/models/user.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="102">
@@ -781,6 +799,60 @@
           <caret line="23" column="63" selection-start-line="23" selection-start-column="63" selection-end-line="23" selection-end-column="63" />
           <folding>
             <element signature="n#style#0;n#nav#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/webApp/src/app/user-info/user-info.component.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="265">
+          <caret line="57" column="27" selection-start-line="57" selection-start-column="27" selection-end-line="57" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/webApp/src/app/user-info/user-info.component.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="268">
+          <caret line="63" column="23" lean-forward="true" selection-start-line="63" selection-start-column="23" selection-end-line="63" selection-end-column="23" />
+          <folding>
+            <element signature="e#0#57#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/webApp/src/app/register/register.component.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="305">
+          <caret line="30" column="11" lean-forward="true" selection-start-line="30" selection-start-column="11" selection-end-line="30" selection-end-column="11" />
+          <folding>
+            <element signature="e#0#48#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/routes/api.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1421">
+          <caret line="122" column="16" lean-forward="true" selection-start-line="122" selection-start-column="16" selection-end-line="122" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/webApp/src/app/auth.guard.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="16" column="18" selection-start-line="16" selection-start-column="18" selection-end-line="16" selection-end-column="18" />
+          <folding>
+            <element signature="e#0#43#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/webApp/src/app/auth.service.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="510">
+          <caret line="30" column="3" lean-forward="true" selection-start-line="30" selection-start-column="3" selection-end-line="30" selection-end-column="3" />
+          <folding>
+            <element signature="e#0#43#0" expanded="true" />
           </folding>
         </state>
       </provider>
