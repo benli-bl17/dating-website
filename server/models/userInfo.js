@@ -14,7 +14,7 @@ const userInfoSchema = new Schema({
     height:Number,
     weight:Number,
     location:String,
-    phoneNumber:Number,
+    phoneNumber:String,
     description:String
 });
 
