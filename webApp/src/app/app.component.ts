@@ -8,7 +8,6 @@ import { UserInfoService } from './user-info.service';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'webApp';
   userInfoData=[]
   constructor(private _authService: AuthService, private _userInfoService:UserInfoService){}
   ngOnInit() {
