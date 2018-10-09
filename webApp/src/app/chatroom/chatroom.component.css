@@ -1,0 +1,9 @@
+div .container{width: 100% !important ; }
+
+#chatroom { margin: 0; padding: 0; box-sizing: border-box; font: 16px Helvetica, Arial;}
+#messages { list-style-type: none; margin: 0; padding: 0; }
+#messages li { padding: 10px 20px; }
+#messages li:nth-child(odd) { background: #fdd6d6}
+#messages { margin-bottom: 40px }
+#form { position: fixed; bottom: 0; width: 100%; }
+#form input { border: 0; padding: 10px; width: 80%; margin-right: .5%; }
