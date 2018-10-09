@@ -5,9 +5,9 @@ import { Injectable } from '@angular/core';
 @Injectable()
 export class UserInfoService {
   
-  private _userUrl = "http://localhost:3000/api/user/" 
-  private _userInfoUrl = "http://localhost:3000/api/userInfo" 
-  private _userUpdateInfoUrl = "http://localhost:3000/api/userInfoUpdate"
+  private _userUrl = "http://172.31.14.30:3000/api/user/" 
+  private _userInfoUrl = "http://172.31.14.30:3000/api/userInfo" 
+  private _userUpdateInfoUrl = "http://172.31.14.30:3000/api/userInfoUpdate"
 
   constructor(private http:HttpClient) { }
 

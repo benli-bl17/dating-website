@@ -4,9 +4,9 @@ import { Injectable } from '@angular/core';
 @Injectable()
 export class EventService {
 
-  private _eventsUrl = "http://localhost:3000/api/events"
-  private _joinUrl = "http://localhost:3000/api/join"
-  private _quitUrl = "http://localhost:3000/api/quit"
+  private _eventsUrl = "http://172.31.14.30:3000/api/events"
+  private _joinUrl = "http://172.31.14.30:3000/api/join"
+  private _quitUrl = "http://172.31.14.30:3000/api/quit"
 
   constructor(private http:HttpClient) { }
 

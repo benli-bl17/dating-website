@@ -8,7 +8,7 @@ import { Subject} from "rxjs/index";
 })
 
 export class WebsocketService {
-  private url = 'http://localhost:5000';
+  private url = 'http://172.31.14.30:5000';
   private socket;
 
   sendMessage(message){
