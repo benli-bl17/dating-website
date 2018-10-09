@@ -8,6 +8,7 @@ import { EventsComponent } from './events/events.component';
 import { MembersComponent } from './members/members.component';
 import { UserComponent } from './user/user.component';
 import {ChatroomComponent} from "./chatroom/chatroom.component";
+import { NotFoundComponent } from './not-found/not-found.component';
 
 const routes: Routes = [
   {
@@ -43,6 +44,10 @@ const routes: Routes = [
   {
     path: 'chatroom',
     component:ChatroomComponent
+  },
+  {
+    path: '**',
+    component:NotFoundComponent
   }
 ];
 
