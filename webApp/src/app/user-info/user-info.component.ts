@@ -63,6 +63,7 @@ export class UserInfoComponent implements OnInit {
       },
       err => console.log(err)
     )
+    alert("Update Successfully")
   }
 
 }
