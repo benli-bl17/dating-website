@@ -39,15 +39,23 @@ router.get('/', (req, res) => {
 router.post('/register', (req, res) => {
     let userData = req.body
     let user = new User(userData)
-    user.save((error, registeredUser) => {
-        if (error) {
-            console.log(error)
-        } else {
-            let payload = { subject: registeredUser._id }
-            let token = jwt.sign(payload, 'aip')
-            let userInfo = new UserInfo ({"userId":user._id})
-            userInfo.save()
-            res.status(200).send({ token })
+    User.findOne({ email: user.email },(err, userExist)=> {
+        if (err) return next(err);
+        else if (userExist){
+            res.json("User Existed")
+        }
+        else{
+            user.save((error, registeredUser) => {
+                if (error) {
+                    console.log(error)
+                } else {
+                    let payload = { subject: registeredUser._id }
+                    let token = jwt.sign(payload, 'aip')
+                    let userInfo = new UserInfo ({"userId":user._id})
+                    userInfo.save()
+                    res.status(200).send({ token })
+                }
+            });
         }
     })
 })
