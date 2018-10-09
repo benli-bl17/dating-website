@@ -18,6 +18,7 @@ import { TokenInterceptorService } from './token-interceptor.service';
 import { EventService } from './event.service';
 import { UserInfoComponent } from './user-info/user-info.component';
 import { UserComponent } from './user/user.component';
+import { FooterComponent } from './footer/footer.component';
 
 
 @NgModule({
@@ -28,7 +29,8 @@ import { UserComponent } from './user/user.component';
     EventsComponent,
     MembersComponent,
     UserInfoComponent,
-    UserComponent
+    UserComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
