@@ -4,8 +4,6 @@ const User = require('../models/user')
 const UserInfo = require('../models/userInfo')
 const Event = require('../models/event')
 const jwt = require('jsonwebtoken')
-const io = require('socket.io')()
-
 
 const mongoose = require('mongoose')
 const db = "mongodb://aip:aippass80@ds231720.mlab.com:31720/datingdb"
@@ -141,5 +139,4 @@ router.get('/user/:id',(req,res)=>{
         res.json(userInfo);
       });
 })
-
 module.exports = router
