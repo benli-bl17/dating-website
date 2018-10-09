@@ -13,6 +13,9 @@
       <li>
         <a class="nav-link" routerLink="/members" routerLinkActive="active">Members</a>
       </li>
+      <li>
+        <a class="nav-link" *ngIf="_authService.loggedIn()" routerLink="/chatroom" routerLinkActive="active">Chatroom</a>
+      </li>
     </ul>
     <ul class="navbar-nav">
       <a class="nav-link" *ngIf="!_authService.loggedIn()" routerLink="/login" routerLinkActive="active">Login</a>
@@ -25,4 +28,5 @@
 <div class="container">
   <router-outlet></router-outlet>
 </div>
+
 <app-footer></app-footer>
