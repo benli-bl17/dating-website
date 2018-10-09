@@ -127,10 +127,26 @@ router.get('/userInfo', verifyToken,(req,res) => {
 })
 router.post('/userInfoUpdate',verifyToken,(req,res) => {
     let userInfoData = req.body
-    delete userInfoData._id
-    UserInfo.findOneAndRemove({"userId":userInfoData.userId})
-    let userInfo = new UserInfo(userInfoData)
-    userInfo.save()
+    let id = userInfoData.userId
+    UserInfo.findOne({"userId":id},(err,userInfo)=>{
+        if(!userInfo){
+            console.log("Not Found")
+        }else{
+            userInfo.firstName = userInfoData.firstName
+            userInfo.lastName = userInfoData.lastName
+            userInfo.gender = userInfoData.gender
+            userInfo.dateOfBirth = userInfoData.dateOfBirth
+            userInfo.marriageStatus = userInfoData.marriageStatus
+            userInfo.education = userInfoData.education
+            userInfo.job = userInfoData.job
+            userInfo.height = userInfoData.height
+            userInfo.weight = userInfoData.weight
+            userInfo.location = userInfoData.location
+            userInfo.phoneNumber = userInfoData.phoneNumber
+            userInfo.description = userInfoData.description
+            userInfo.save()
+        }
+    })
 })
 router.get('/user/:id',(req,res)=>{
     let id = req.params.id
