@@ -20,6 +20,7 @@ import { UserInfoComponent } from './user-info/user-info.component';
 import { UserComponent } from './user/user.component';
 import { FooterComponent } from './footer/footer.component';
 import { ChatroomComponent } from './chatroom/chatroom.component';
+import { NotFoundComponent } from './not-found/not-found.component';
 
 
 @NgModule({
@@ -32,7 +33,8 @@ import { ChatroomComponent } from './chatroom/chatroom.component';
     UserInfoComponent,
     UserComponent,
     FooterComponent,
-    ChatroomComponent
+    ChatroomComponent,
+    NotFoundComponent
   ],
   imports: [
     BrowserModule,
