@@ -1,0 +1,12 @@
+<div id="chatroom">
+  <ul id="messages">
+    <li *ngFor="let message of messages">
+      {{message.text}}
+    </li>
+  </ul>
+  <div id="form">
+
+    <input #box (keyup.enter)="sendMessage(userInfoData.lastName)" [(ngModel)]="message"  />
+    <button   (click)="sendMessage(userInfoData.lastName)" class="btn btn-warning">Send</button>
+  </div>
+</div>
