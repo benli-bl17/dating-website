@@ -1,53 +1,54 @@
-import { UserInfoComponent } from './user-info/user-info.component';
+import { UserInfoComponent } from './user/user-info/user-info.component';
 import { AuthGuard } from './auth.guard';
-import { RegisterComponent } from './register/register.component';
-import { LoginComponent } from './login/login.component';
+import { RegisterComponent } from './user/register/register.component';
+import { LoginComponent } from './user/login/login.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { EventsComponent } from './events/events.component';
 import { MembersComponent } from './members/members.component';
 import { UserComponent } from './user/user.component';
-import {ChatroomComponent} from "./chatroom/chatroom.component";
+import { ChatroomComponent } from "./chatroom/chatroom.component";
 import { NotFoundComponent } from './not-found/not-found.component';
 
 const routes: Routes = [
   {
     path: '',
+    
     redirectTo: '/events',
     pathMatch: 'full'
   },
   {
     path: 'events',
-    component:EventsComponent,
+    component: EventsComponent,
   },
   {
     path: 'members',
-    component:MembersComponent,
-    canActivate:[AuthGuard]
+    component: MembersComponent,
+    canActivate: [AuthGuard]
   },
   {
     path: 'login',
-    component:LoginComponent
+    component: LoginComponent
   },
   {
     path: 'register',
-    component:RegisterComponent
+    component: RegisterComponent
   },
   {
     path: 'userInfo',
-    component:UserInfoComponent
+    component: UserInfoComponent
   },
   {
     path: 'user/:id',
-    component:UserComponent
+    component: UserComponent
   },
   {
     path: 'chatroom',
-    component:ChatroomComponent
+    component: ChatroomComponent
   },
   {
     path: '**',
-    component:NotFoundComponent
+    component: NotFoundComponent
   }
 ];
 

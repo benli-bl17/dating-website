@@ -11,8 +11,10 @@
         <p class="card-text">Location: {{event.location}}</p>
       </div>
       <div class="card-footer text-muted">
-        <button *ngIf="!event.members.includes(userInfoData.firstName)" (click)="join(event._id,userInfoData.firstName)" id="join" class="btn btn-lg btn-primary btn-block" type="submit" >Join</button>
-        <button *ngIf="event.members.includes(userInfoData.firstName)" (click)="quit(event._id,userInfoData.firstName)" id="quit" class="btn btn-lg btn-primary btn-block " type="submit">Quit</button>
+        <button *ngIf="!event.members.includes(userInfoData.firstName)" (click)="join(event._id,userInfoData.firstName)"
+          id="join" class="btn btn-lg btn-primary btn-block" type="submit">Join</button>
+        <button *ngIf="event.members.includes(userInfoData.firstName)" (click)="quit(event._id,userInfoData.firstName)"
+          id="quit" class="btn btn-lg btn-primary btn-block " type="submit">Quit</button>
       </div>
     </div>
   </div>

@@ -8,7 +8,7 @@ export class EventService {
   private _joinUrl = "http://localhost:3000/api/join"
   private _quitUrl = "http://localhost:3000/api/quit"
 
-  constructor(private http:HttpClient) { }
+  constructor(private http: HttpClient) { }
 
   getEvents() {
     return this.http.get<any>(this._eventsUrl)

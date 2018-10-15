@@ -10,13 +10,13 @@ import { WebsocketService } from "./websocket.service";
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { RegisterComponent } from './register/register.component';
-import { LoginComponent } from './login/login.component';
+import { RegisterComponent } from './user/register/register.component';
+import { LoginComponent } from './user/login/login.component';
 import { EventsComponent } from './events/events.component';
 import { MembersComponent } from './members/members.component';
 import { TokenInterceptorService } from './token-interceptor.service';
 import { EventService } from './event.service';
-import { UserInfoComponent } from './user-info/user-info.component';
+import { UserInfoComponent } from './user/user-info/user-info.component';
 import { UserComponent } from './user/user.component';
 import { FooterComponent } from './footer/footer.component';
 import { ChatroomComponent } from './chatroom/chatroom.component';
@@ -42,12 +42,12 @@ import { NotFoundComponent } from './not-found/not-found.component';
     HttpClientModule,
     AppRoutingModule
   ],
-  providers: [AuthService,EventService,MemberService,UserInfoService,AuthGuard,WebsocketService,
-  {
-    provide: HTTP_INTERCEPTORS,
-    useClass: TokenInterceptorService,
-    multi: true
-  }],
+  providers: [AuthService, EventService, MemberService, UserInfoService, AuthGuard, WebsocketService,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: TokenInterceptorService,
+      multi: true
+    }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

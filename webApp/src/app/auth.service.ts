@@ -9,12 +9,12 @@ export class AuthService {
 
   private _registerUrl = "http://localhost:3000/api/register"
 
-  constructor(private http: HttpClient, private _router:Router) { }
+  constructor(private http: HttpClient, private _router: Router) { }
 
   loginUser(user) {
     return this.http.post<any>(this._loginUrl, user)
   }
-  logoutUser(){
+  logoutUser() {
     localStorage.removeItem('token')
     this._router.navigate(['/events'])
     window.location.reload();
@@ -23,10 +23,10 @@ export class AuthService {
   registerUser(user) {
     return this.http.post<any>(this._registerUrl, user)
   }
-  loggedIn(){
+  loggedIn() {
     return !!localStorage.getItem('token')
   }
-  getToken(){
+  getToken() {
     return localStorage.getItem('token')
   }
 }

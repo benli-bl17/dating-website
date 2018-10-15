@@ -1,7 +1,7 @@
 <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #F1948A;">
   <a class="navbar-brand" href="#">Dating</a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-    aria-expanded="false" aria-label="Toggle navigation">
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
 
@@ -20,7 +20,8 @@
     <ul class="navbar-nav">
       <a class="nav-link" *ngIf="!_authService.loggedIn()" routerLink="/login" routerLinkActive="active">Login</a>
       <a class="nav-link" *ngIf="!_authService.loggedIn()" routerLink="/register" routerLinkActive="active">Register</a>
-      <a class="nav-link" *ngIf="_authService.loggedIn()" routerLink="/userInfo" routerLinkActive="active">Hi {{userInfoData.firstName}}</a>
+      <a class="nav-link" *ngIf="_authService.loggedIn()" routerLink="/userInfo" routerLinkActive="active">Hi
+        {{userInfoData.firstName}}</a>
       <a class="nav-link" style="cursor:pointer" *ngIf="_authService.loggedIn()" (click)="_authService.logoutUser()">Logout</a>
     </ul>
   </div>

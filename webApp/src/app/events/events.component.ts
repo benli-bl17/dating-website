@@ -3,7 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from '../auth.service';
 import { timer } from 'rxjs';
-import {UserInfoService} from "../user-info.service";
+import { UserInfoService } from "../user-info.service";
 
 @Component({
   selector: 'app-events',
@@ -13,14 +13,14 @@ import {UserInfoService} from "../user-info.service";
 export class EventsComponent implements OnInit {
 
   events = []
-  userJoin = {user: "", event: ""};
-  userQuit = {user: "", event: ""};
-  userInfoData=[];
+  userJoin = { user: "", event: "" };
+  userQuit = { user: "", event: "" };
+  userInfoData = [];
   user = "";
   constructor(private _eventService: EventService,
-  private _authService: AuthService,
-  private _router: Router,
-  private _userInfoService:UserInfoService) {
+    private _authService: AuthService,
+    private _router: Router,
+    private _userInfoService: UserInfoService) {
   }
 
   ngOnInit() {
@@ -35,18 +35,19 @@ export class EventsComponent implements OnInit {
   private refreshData(): void {
     this._eventService.getEvents()
       .subscribe(
-        res => {this.events = res;
-        // this.subscribeToData();
+        res => {
+        this.events = res;
+          // this.subscribeToData();
         })
-    }
+  }
 
   // private subscribeToData(): void {
   //   timer(5000).subscribe(() => this.refreshData());
   // }
 
-  join(event,user) {
-    if(this._authService.loggedIn()){
-      if(!user){
+  join(event, user) {
+    if (this._authService.loggedIn()) {
+      if (!user) {
         alert("Please edit your profile! Add your first name!");
         this._router.navigate(['./userInfo'])
       }
@@ -64,7 +65,7 @@ export class EventsComponent implements OnInit {
       this._router.navigate(['./login'])
     }
   }
-  quit(event,user){
+  quit(event, user) {
     this.userQuit.event = event;
     this.userQuit.user = user;
     this._eventService.quit(this.userQuit).subscribe(

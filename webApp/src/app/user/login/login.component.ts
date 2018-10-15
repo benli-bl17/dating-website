@@ -1,4 +1,4 @@
-import { AuthService } from './../auth.service';
+import { AuthService } from '../../auth.service';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
@@ -19,7 +19,7 @@ export class LoginComponent implements OnInit {
     this._auth.loginUser(this.loginUserData)
       .subscribe(
         res => {
-          if( res == "Invalid email"){
+          if (res == "Invalid email") {
             alert("Email does not exist")
           }
           else if (res == "Invalid password") {
@@ -33,5 +33,5 @@ export class LoginComponent implements OnInit {
         },
         err => console.log(err)
       )
-}
+  }
 }

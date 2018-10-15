@@ -1,4 +1,4 @@
-import { AuthService } from './../auth.service';
+import { AuthService } from '../../auth.service';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
@@ -11,19 +11,19 @@ export class RegisterComponent implements OnInit {
 
   registerUserData = {}
 
-  constructor(private _auth: AuthService, private _router:Router) { }
+  constructor(private _auth: AuthService, private _router: Router) { }
 
   ngOnInit() {
   }
 
-  registerUser(email,password) {
+  registerUser(email, password) {
     const reg = /^\w+((-\w+)|(\.\w+))*\@[A-Za-z0-9]+((\.|-)[A-Za-z0-9]+)*\.[A-Za-z0-9]+$/;
     if (email != "") {
       if (reg.test(email) && password) {
         this._auth.registerUser(this.registerUserData)
           .subscribe(
             res => {
-              if (res == "User Existed"){
+              if (res == "User Existed") {
                 alert("Register Failed. User Existed!")
               }
               else {
@@ -37,7 +37,7 @@ export class RegisterComponent implements OnInit {
       else if (!password) {
         alert("Password can't be empty")
       }
-      else{
+      else {
         alert("Invalid Email")
       }
     }
