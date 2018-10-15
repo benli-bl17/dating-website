@@ -13,7 +13,6 @@ import { NotFoundComponent } from './not-found/not-found.component';
 const routes: Routes = [
   {
     path: '',
-    
     redirectTo: '/events',
     pathMatch: 'full'
   },
