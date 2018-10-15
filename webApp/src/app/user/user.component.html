@@ -2,27 +2,29 @@
     <form>
         <div class="row">
             <div class="col-md-4">
-                <div align ="center" class="profile-img" > 
-                    <img src="http://bpic.588ku.com/element_pic/01/48/84/81574442cdf2061.jpg" height="183px" alt=""/>
+                <div align="center" class="profile-img">
+                    <img src="http://bpic.588ku.com/element_pic/01/48/84/81574442cdf2061.jpg" height="183px" alt="" />
                 </div>
             </div>
             <div class="col-md-6">
                 <div class="profile-head">
-                            <h5>
-                                {{userInfo.firstName}} {{userInfo.lastName}}  
-                            </h5>
-                            <p>
-                                {{userInfo.location}}
-                            </p>
-                            <h6>
-                                {{userInfo.job}}
-                            </h6>
+                    <h5>
+                        {{userInfo.firstName}} {{userInfo.lastName}}
+                    </h5>
+                    <p>
+                        {{userInfo.location}}
+                    </p>
+                    <h6>
+                        {{userInfo.job}}
+                    </h6>
                     <ul class="nav nav-tabs" id="myTab" role="tablist">
                         <li class="nav-item">
-                            <a class="nav-link active" id="home-tab" data-toggle="tab" href="#about" role="tab" aria-controls="about" aria-selected="true">About</a>
+                            <a class="nav-link active" id="home-tab" data-toggle="tab" href="#about" role="tab"
+                                aria-controls="about" aria-selected="true">About</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" id="profile-tab" data-toggle="tab" href="#description" role="tab" aria-controls="description" aria-selected="false">Description</a>
+                            <a class="nav-link" id="profile-tab" data-toggle="tab" href="#description" role="tab"
+                                aria-controls="description" aria-selected="false">Description</a>
                         </li>
                     </ul>
                 </div>
@@ -34,62 +36,62 @@
             <div class="col-md-8">
                 <div class="tab-content profile-tab" id="myTabContent">
                     <div class="tab-pane fade show active" id="about" role="tabpanel" aria-labelledby="home-tab">
-                                <div class="row">
-                                    <div class="col-md-6">
-                                        <label>Gender</label>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <p>{{userInfo.gender}}</p>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-md-6">
-                                        <label>Birthday</label>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <p>{{userInfo.dateOfBirth}}</p>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-md-6">
-                                        <label>Marriage Status</label>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <p>{{userInfo.marriageStatus}}</p>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-md-6">
-                                        <label>Education</label>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <p>{{userInfo.education}}</p>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-md-6">
-                                        <label>Height</label>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <p>{{userInfo.height}} CM</p>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-md-6">
-                                        <label>Weight</label>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <p>{{userInfo.weight}} KG</p>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-md-6">
-                                        <label>Phone</label>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <p>{{userInfo.phoneNumber}}</p>
-                                    </div>
-                                </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <label>Gender</label>
+                            </div>
+                            <div class="col-md-6">
+                                <p>{{userInfo.gender}}</p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <label>Birthday</label>
+                            </div>
+                            <div class="col-md-6">
+                                <p>{{userInfo.dateOfBirth}}</p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <label>Marriage Status</label>
+                            </div>
+                            <div class="col-md-6">
+                                <p>{{userInfo.marriageStatus}}</p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <label>Education</label>
+                            </div>
+                            <div class="col-md-6">
+                                <p>{{userInfo.education}}</p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <label>Height</label>
+                            </div>
+                            <div class="col-md-6">
+                                <p>{{userInfo.height}} CM</p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <label>Weight</label>
+                            </div>
+                            <div class="col-md-6">
+                                <p>{{userInfo.weight}} KG</p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <label>Phone</label>
+                            </div>
+                            <div class="col-md-6">
+                                <p>{{userInfo.phoneNumber}}</p>
+                            </div>
+                        </div>
                     </div>
                     <div class="tab-pane fade" id="description" role="tabpanel" aria-labelledby="profile-tab">
                         <div class="row">
@@ -101,5 +103,5 @@
                 </div>
             </div>
         </div>
-    </form>           
+    </form>
 </div>
