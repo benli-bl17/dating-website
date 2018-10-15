@@ -1,10 +1,13 @@
+<!-- Member card  -->
 <div class="row mt-5">
-    <div class="card"  *ngFor="let member of members">
+    <div class="card" *ngFor="let member of members">
         <img class="card-img-top" src="http://bpic.588ku.com/element_pic/01/48/84/81574442cdf2061.jpg" alt="user">
         <div class="card-body">
-          <h5 class="card-title">{{member.firstName}} {{member.lastName}} </h5>
-          <p class="card-text">{{member.age}} {{member.gender}}<br> {{member.location}}<br>{{member.job}}</p>
-          <a class="nav-link"  [routerLink]="['/user', member.userId]" class="btn btn-primary">View</a>
+            <!-- Show info -->
+            <h5 class="card-title">{{member.firstName}} {{member.lastName}} </h5>
+            <p class="card-text">{{member.age}} {{member.gender}}<br> {{member.location}}<br>{{member.job}}</p>
+            <!-- Jump to user detail page -->
+            <a class="nav-link" [routerLink]="['/user', member.userId]" class="btn btn-primary">View</a>
         </div>
     </div>
 </div>
