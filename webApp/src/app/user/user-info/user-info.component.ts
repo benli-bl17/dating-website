@@ -1,4 +1,4 @@
-import { UserInfoService } from './../user-info.service';
+import { UserInfoService } from '../../user-info.service';
 import { Component, OnInit } from '@angular/core';
 import { UserInfo } from './user-info';
 
@@ -43,25 +43,25 @@ export class UserInfoComponent implements OnInit {
 
   userInfoData = new UserInfo()
 
-  constructor(private _userInfoService:UserInfoService) { }
+  constructor(private _userInfoService: UserInfoService) { }
 
 
   ngOnInit() {
     this._userInfoService.getUserInfo()
-    .subscribe(
-      res => this.userInfoData = res,
-      err => console.log(err)
-    )
+      .subscribe(
+        res => this.userInfoData = res,
+        err => console.log(err)
+      )
   }
 
-  updateuserInfoData(){
+  updateuserInfoData() {
     this._userInfoService.updateuserInfoData(this.userInfoData)
-    .subscribe(
-      res => {
-        console.log(res)
-      },
-      err => console.log(err)
-    )
+      .subscribe(
+        res => {
+          console.log(res)
+        },
+        err => console.log(err)
+      )
     alert("Update Successfully")
     window.location.reload();
   }

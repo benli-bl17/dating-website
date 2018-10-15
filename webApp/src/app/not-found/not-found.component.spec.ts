@@ -13,7 +13,8 @@ describe('NotFoundComponent', () => {
     .compileComponents();
   }));
 
-  beforeEach(() => {
+  beforeEach(() =>
+   {
     fixture = TestBed.createComponent(NotFoundComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();

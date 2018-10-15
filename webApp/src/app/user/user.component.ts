@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { UserInfoService } from '../user-info.service';
 import { ActivatedRoute } from '@angular/router';
-import { UserInfo } from '../user-info/user-info';
+import { UserInfo } from '../user/user-info/user-info';
 
 @Component({
   selector: 'app-user',
@@ -10,18 +10,18 @@ import { UserInfo } from '../user-info/user-info';
 })
 export class UserComponent implements OnInit {
 
-  constructor(private _userInfoService:UserInfoService, private _routerInfo:ActivatedRoute) { }
+  constructor(private _userInfoService: UserInfoService, private _routerInfo: ActivatedRoute) { }
 
   userInfo = new UserInfo()
 
   ngOnInit() {
     this._routerInfo.params.subscribe(
-      params => { 
+      params => {
         this._userInfoService.getUser(params.id)
-        .subscribe(
-          res => this.userInfo = res,
-          err => console.log(err)
-        )
+          .subscribe(
+            res => this.userInfo = res,
+            err => console.log(err)
+          )
       }
     )
   }

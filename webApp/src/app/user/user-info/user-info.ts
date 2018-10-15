@@ -1,5 +1,5 @@
 export class UserInfo {
-    constructor (
+    constructor(
         // public userId: String,
         // public firstName: String,
         // public lastName: String,
@@ -12,6 +12,6 @@ export class UserInfo {
         // public location: String,
         // public phoneNumber: Number,
         // public description: String
-    ) {}
+    ) { }
 
 }
