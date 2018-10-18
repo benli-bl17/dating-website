@@ -10,39 +10,48 @@ import { Router } from '@angular/router';
   styleUrls: ['./chatroom.component.css']
 })
 export class ChatroomComponent implements OnInit {
+  //Initialize variable that need to be used in socket.io
+  message;
   messages = [];
   connection;
-  message;
+  //Initialize variable that need to display user information
   userInfoData = [];
   user = "";
-  constructor(private websocket: WebsocketService,
+
+  //Create instances of services that need to used in chatroom
+  constructor(
+    private _websocketSerivce: WebsocketService,
     private _userInfoService: UserInfoService,
     private _authService: AuthService,
     private _router: Router) { }
 
+  //  Create a function to invoke sendMessage function of webSocket service
   sendMessage(user) {
-    this.websocket.sendMessage(user + ":       " + this.message);
+    this._websocketSerivce.sendMessage(user + ":       " + this.message);
+    //intialize the variable message after it was send.
     this.message = '';
 
   }
-
+//When the chatroom on initialized
   ngOnInit() {
+    //If user has loginned
     if (this._authService.loggedIn()) {
-      this.connection = this.websocket.getMessages().subscribe(message => {
-        this.messages.push(message);
-      })
+      //Get user information by invkoing getUserInfo of userInforService
       this._userInfoService.getUserInfo()
         .subscribe(
-          res => this.userInfoData = res,
+          userInfor => this.userInfoData = userInfor,
           err => console.log(err)
         )
+      //Build the connection by invoking function getMessages with webSocket service
+      this.connection = this._websocketSerivce.getMessages()
+      //Get the message and push it into the String Array massages
+        .subscribe(
+          message => this.messages.push(message),
+          err => console.log(err)
+        )
+    //  If not login, navigate the user to login page
     } else {
       this._router.navigate(['/login'])
     }
-
-  }
-
-  ngOnDestory() {
-    this.connection.unsubscribe()
   }
 }

@@ -1,12 +1,14 @@
 <div id="chatroom">
   <ul id="messages">
+    <!--Dis play the Arrays messages in li tag with *ngFor-->
     <li *ngFor="let message of messages">
       {{message.text}}
     </li>
   </ul>
   <div id="form">
-
+<!--Set keyup function in input for sending message, bind the text to variable message with ngModel  -->
     <input #box (keyup.enter)="sendMessage(userInfoData.firstName)" [(ngModel)]="message" />
+    <!-- Setup click function to invoke function sendMessage-->
     <button (click)="sendMessage(userInfoData.firstName)" class="btn btn-warning">Send</button>
   </div>
 </div>
