@@ -44,7 +44,7 @@ export class ChatroomComponent implements OnInit {
         )
       //Build the connection by invoking function getMessages with webSocket service
       this.connection = this._websocketSerivce.getMessages()
-      //Get the message and push it into the String Array massages
+      //subscribe the varaible message and push it into the String Array massages when it is changed
         .subscribe(
           message => this.messages.push(message),
           err => console.log(err)
