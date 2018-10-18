@@ -17,16 +17,17 @@ mongoose.connect(db, err => {
     }
 })
 function verifyToken(req, res, next) {
+    const unAuthorizedRequest = 'Unauthorized request'
     if(!req.headers.authorization) {
-      return res.status(401).send('Unauthorized request')
+      return res.status(401).send(unAuthorizedRequest)
     }
     let token = req.headers.authorization.split(' ')[1]
     if(token === 'null') {
-      return res.status(401).send('Unauthorized request')    
+      return res.status(401).send(unAuthorizedRequest)
     }
     let payload = jwt.verify(token, 'aip')
     if(!payload) {
-      return res.status(401).send('Unauthorized request')    
+      return res.status(401).send(unAuthorizedRequest)
     }
     req.userId = payload.subject
     next()
