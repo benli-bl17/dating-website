@@ -9,15 +9,15 @@ import { Component, OnInit } from '@angular/core';
 export class MembersComponent implements OnInit {
 
   members = []
-  constructor(private _memberService:MemberService) { }
+  constructor(private _memberService: MemberService) { }
 
   ngOnInit() {
     //Get all user information
     this._memberService.getMembers()
-    .subscribe(
-      res => this.members = res,
-      err => console.log(err)
-    )
+      .subscribe(
+        res => this.members = res,
+        err => console.log(err)
+      )
   }
 
 }

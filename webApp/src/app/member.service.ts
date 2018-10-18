@@ -8,6 +8,7 @@ export class MemberService {
 
   constructor(private http: HttpClient) { }
 
+  //get all user's information
   getMembers() {
     return this.http.get<any>(this._membersUrl)
   }

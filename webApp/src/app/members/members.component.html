@@ -6,7 +6,7 @@
             <!-- Show info -->
             <h5 class="card-title">{{member.firstName}} {{member.lastName}} </h5>
             <p class="card-text">{{member.age}} {{member.gender}}<br> {{member.location}}<br>{{member.job}}</p>
-            <!-- Jump to user detail page -->
+            <!-- Jump to user detail page by userId-->
             <a class="nav-link" [routerLink]="['/user', member.userId]" class="btn btn-primary">View</a>
         </div>
     </div>
