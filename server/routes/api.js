@@ -19,20 +19,21 @@ mongoose.connect(db, err => {
 })
 //Define verifyToken to verify the request
 function verifyToken(req, res, next) {
-    if (!req.headers.authorization) {
-        return res.status(401).send('Unauthorized request')
+    const unAuthorizedRequest = 'Unauthorized request'
+    if(!req.headers.authorization) {
+      return res.status(401).send(unAuthorizedRequest)
     }
     let token = req.headers.authorization.split(' ')[1]
-    if (token === 'null') {
-        return res.status(401).send('Unauthorized request')
+    if(token === 'null') {
+      return res.status(401).send(unAuthorizedRequest)
     }
     let payload = jwt.verify(token, 'aip')
-    if (!payload) {
-        return res.status(401).send('Unauthorized request')
+    if(!payload) {
+      return res.status(401).send(unAuthorizedRequest)
     }
     req.userId = payload.subject
     next()
-}
+  }
 // respond with "From API route" when a GET request is made to the homepage
 router.get('/', (req, res) => {
     res.send('From API route')
