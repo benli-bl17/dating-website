@@ -11,12 +11,15 @@ export class UserInfoService {
 
   constructor(private http: HttpClient) { }
 
+  //Get the corresponding user's information by userid
   getUser(id) {
     return this.http.get<any>(this._userUrl + id)
   }
+  //Get current user information
   getUserInfo() {
     return this.http.get<any>(this._userInfoUrl)
   }
+  //Update current user information
   updateuserInfoData(_userInfo: UserInfo) {
     return this.http.post<any>(this._userUpdateInfoUrl, _userInfo)
   }

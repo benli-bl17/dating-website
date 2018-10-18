@@ -12,6 +12,7 @@ export class MembersComponent implements OnInit {
   constructor(private _memberService:MemberService) { }
 
   ngOnInit() {
+    //Get all user information
     this._memberService.getMembers()
     .subscribe(
       res => this.members = res,

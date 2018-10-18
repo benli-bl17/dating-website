@@ -4,7 +4,7 @@
     aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
-
+<!-- Navigation Bar -->
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item">
@@ -18,8 +18,10 @@
       </li>
     </ul>
     <ul class="navbar-nav">
+      <!-- Hidden in login state -->
       <a class="nav-link" *ngIf="!_authService.loggedIn()" routerLink="/login" routerLinkActive="active">Login</a>
       <a class="nav-link" *ngIf="!_authService.loggedIn()" routerLink="/register" routerLinkActive="active">Register</a>
+      <!-- Hidden in non-login state -->
       <a class="nav-link" *ngIf="_authService.loggedIn()" routerLink="/userInfo" routerLinkActive="active">Hi
         {{userInfoData.firstName}}</a>
       <a class="nav-link" style="cursor:pointer" *ngIf="_authService.loggedIn()" (click)="_authService.logoutUser()">Logout</a>

@@ -25,11 +25,6 @@ export class EventsComponent implements OnInit {
 
   ngOnInit() {
     this.refreshData();
-    this._userInfoService.getUserInfo()
-      .subscribe(
-        res => this.userInfoData = res,
-        err => console.log(err)
-      )
   }
 
   private refreshData(): void {
@@ -46,6 +41,11 @@ export class EventsComponent implements OnInit {
   // }
 
   join(event, user) {
+    this._userInfoService.getUserInfo()
+    .subscribe(
+      res => this.userInfoData = res,
+      err => console.log("Please Login")
+    )
     if (this._authService.loggedIn()) {
       if (!user) {
         alert("Please edit your profile! Add your first name!");

@@ -1,4 +1,4 @@
-# Dating-website 2
+# Dating-website
 This project sets up a website for programmers to make friends. 
 
 It has mainly three modules:</br>
