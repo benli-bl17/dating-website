@@ -3,11 +3,11 @@
     <form #userForm="ngForm">
         <div class="form-group">
             <label class="form-label">FirstName</label>
-            <input type="text" class="form-control" name="firstName" [(ngModel)]="userInfoData.firstName">
+            <input type="text" class="form-control" name="firstName" [(ngModel)]="userInfoData.firstName" required>
         </div>
         <div class="form-group">
             <label class="form-label">LastName:</label>
-            <input type="text" class="form-control" name="lastName" [(ngModel)]="userInfoData.lastName">
+            <input type="text" class="form-control" name="lastName" [(ngModel)]="userInfoData.lastName" required>
         </div>
         <div class="form-group">
             <label class="form-label">Gender:</label>

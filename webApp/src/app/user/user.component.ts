@@ -15,6 +15,8 @@ export class UserComponent implements OnInit {
   userInfo = new UserInfo()
 
   ngOnInit() {
+    //Pass user id through routing parameters
+    //Get user detail by userId
     this._routerInfo.params.subscribe(
       params => {
         this._userInfoService.getUser(params.id)

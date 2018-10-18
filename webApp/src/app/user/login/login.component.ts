@@ -26,7 +26,9 @@ export class LoginComponent implements OnInit {
             alert("Invalid password")
           }
           else {
+            //Login successfully added token into the localStorage
             localStorage.setItem('token', res.token)
+            //router to members page
             this._router.navigate(['/members'])
             window.location.reload();
           }
