@@ -11,9 +11,9 @@ import { ChatroomComponent } from "./chatroom/chatroom.component";
 import { NotFoundComponent } from './not-found/not-found.component';
 
 const routes: Routes = [
+  //Default jump events page
   {
     path: '',
-    
     redirectTo: '/events',
     pathMatch: 'full'
   },
@@ -21,6 +21,7 @@ const routes: Routes = [
     path: 'events',
     component: EventsComponent,
   },
+  //Route guard for members page
   {
     path: 'members',
     component: MembersComponent,
@@ -38,6 +39,7 @@ const routes: Routes = [
     path: 'userInfo',
     component: UserInfoComponent
   },
+  //User detail page route
   {
     path: 'user/:id',
     component: UserComponent
@@ -47,6 +49,7 @@ const routes: Routes = [
     component: ChatroomComponent
   },
   {
+    //Illegal path route to  notfound page
     path: '**',
     component: NotFoundComponent
   }

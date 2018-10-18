@@ -9,6 +9,7 @@ import { UserInfo } from './user-info';
 })
 export class UserInfoComponent implements OnInit {
 
+  //Define classes
   genders = [
     "Male",
     "Female",
@@ -47,13 +48,14 @@ export class UserInfoComponent implements OnInit {
 
 
   ngOnInit() {
+    //Get userinfo
     this._userInfoService.getUserInfo()
       .subscribe(
         res => this.userInfoData = res,
         err => console.log(err)
       )
   }
-
+  //update user information
   updateuserInfoData() {
     this._userInfoService.updateuserInfoData(this.userInfoData)
       .subscribe(
