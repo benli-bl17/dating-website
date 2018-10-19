@@ -19,12 +19,12 @@ Cheng Zhu 13000359</br>
 Yilun Chen 12781961</br>
 Bin Li 12520817</br>
 
-## How to run the application
+# How to run the application</br>
 ## Database
-Run `cd server` in terminal.
-Run `node server.js` for a express server.
-Run `websocketServer.js` for a websocket server.
-This project uses mongodb to set up the database and uses mongoose help manage the data.
+Run `cd server` in terminal.</br>
+Run `node server.js` for a express server.</br>
+Run `websocketServer.js` for a websocket server.</br>
+This project uses mongodb to set up the database and uses mongoose help manage the data.</br>
 
 ## Development server
 
