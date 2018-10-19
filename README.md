@@ -10,14 +10,20 @@ This prokject is based on the M(mangodb)E(express)A(Angular)N(Node) structure.</
 This project developed by Angular2. Make sure you have installed node.js.</br>
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.1.2.
 
+#Interesting function
+After login, you can go to chatroom page to have a online realtime chat with our other users
+
 # Developers
 
 Cheng Zhu 13000359</br>
 Yilun Chen 12781961</br>
 Bin Li 12520817</br>
 
+## How to run the application
 ## Database
+Run `cd server` in terminal.
 Run `node server.js` for a express server.
+Run `websocketServer.js` for a websocket server.
 This project uses mongodb to set up the database and uses mongoose help manage the data.
 
 ## Development server
@@ -28,9 +34,6 @@ Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app w
 
 Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
 
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
 
 ## Style Guide
 ### Single responsibility
