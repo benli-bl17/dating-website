@@ -19,6 +19,7 @@ export class LoginComponent implements OnInit {
     this._auth.loginUser(this.loginUserData)
       .subscribe(
         res => {
+          // alert the error according to the respond
           if (res == "Invalid email") {
             alert("Email does not exist")
           }
