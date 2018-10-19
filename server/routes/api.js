@@ -44,9 +44,11 @@ router.post('/register', (req, res) => {
     let user = new User(userData)
     User.findOne({ email: user.email }, (err, userExist) => {
         if (err) return next(err);
+        //respond User Existed message if user already exists
         else if (userExist) {
             res.json("User Existed")
         }
+        // save the data of the new user
         else {
             user.save((error, registeredUser) => {
                 if (error) {
@@ -55,7 +57,7 @@ router.post('/register', (req, res) => {
                     // TOKEN BASED AUTHENTICATION
                     let payload = { subject: registeredUser._id }
                     let token = jwt.sign(payload, 'aip')
-                    // add userId into userinfo collection 
+                    // add userId into userinfo collection
                     let userInfo = new UserInfo({ "userId": user._id })
                     userInfo.save()
                     res.status(200).send({ token })
@@ -71,6 +73,7 @@ router.post('/login', (req, res) => {
         if (error) {
             console.log(error)
         } else {
+            //check the email and password and give according respond
             if (!user) {
                 res.json("Invalid email")
             } else if (user.password !== userData.password) {
@@ -84,10 +87,10 @@ router.post('/login', (req, res) => {
         }
     })
 })
-
+//POST method for join api
 router.post('/join', (req, res) => {
     let join = req.body;
-    console.log(join);
+    //find the event, add the user name into the member list, update the member numbers
     Event.findOne({ _id: join.event }, (err, eventJoin) => {
         if (!eventJoin) {
             console.log(join.event + "Not Found")
@@ -99,19 +102,19 @@ router.post('/join', (req, res) => {
         }
     })
 })
+//POST method for quit api
 router.post('/quit', (req, res) => {
     let quit = req.body;
-    console.log("quit" + quit);
     Event.findOne({ _id: quit.event }, (err, eventQuit) => {
         if (!eventQuit) {
             console.log(quit.event + "Not Found")
         }
+        // find the event and delete the user name from the member list
         else {
-            if (eventQuit.members.indexOf(quit.user) != -1) {
+            if (eventQuit.members.indexOf(quit.user) !== -1) {
                 eventQuit.members.splice(eventQuit.members.indexOf(quit.user), 1);
                 eventQuit.amount = eventQuit.members.length;
                 eventQuit.save();
-                console.log("delete");
             }
         }
     })
@@ -135,7 +138,7 @@ router.get('/members', verifyToken, (req, res) => {
         members.forEach(function (eachMember) {
             if (eachMember.lastName) {
                 //Do not display current user information
-                if (eachMember.userId != req.userId) {
+                if (eachMember.userId !== req.userId) {
                     memberNew.push(eachMember);
                 }
             }
