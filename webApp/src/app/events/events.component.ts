@@ -35,11 +35,13 @@ export class EventsComponent implements OnInit {
         this.events = res;
         })
     // get the current user information
+    if(this._authService.loggedIn()){
     this._userInfoService.getUserInfo()
       .subscribe(
         res => this.userInfoData = res,
         err => console.log(err)
       )
+    }
   }
 
   //join the event clicked, and refresh to show the new member list and quit button
