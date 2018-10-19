@@ -11,9 +11,9 @@ import { UserInfoService } from "../user-info.service";
 })
 export class EventsComponent implements OnInit {
   // initial variables
-  events = []
-  userJoin = { user: "", event: "" };
-  userQuit = { user: "", event: "" };
+  events = [];
+  userJoin = { user:"", userID:"", event: "" };
+  userQuit = { userID:"", event: "" };
   userInfoData = [];
   user = "";
 
@@ -45,7 +45,7 @@ export class EventsComponent implements OnInit {
   }
 
   //join the event clicked, and refresh to show the new member list and quit button
-  join(event, user) {
+  join(event, user, userID) {
     // check if the user has logged in ,if not, jump to the login component
     if (this._authService.loggedIn()) {
       // force the user to add the first name before joining the event
@@ -56,6 +56,7 @@ export class EventsComponent implements OnInit {
       else {
         this.userJoin.event = event;
         this.userJoin.user = user;
+        this.userJoin.userID = userID;
         this._eventService.join(this.userJoin).subscribe(
           res => this.userJoin = res
         )
@@ -67,9 +68,9 @@ export class EventsComponent implements OnInit {
   }
 
   //quit the event clicked, and refresh to show the new member list and join button
-  quit(event, user) {
+  quit(event, userID) {
     this.userQuit.event = event;
-    this.userQuit.user = user;
+    this.userQuit.userID = userID;
     this._eventService.quit(this.userQuit).subscribe(
       res => this.userQuit = res
     )

@@ -9,6 +9,7 @@ const eventSchema = new Schema({
     description: String,
     amount: Number,
     members: Array,
+    membersID: Array,
     pic: String,
     location: String,
 });

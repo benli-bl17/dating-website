@@ -90,13 +90,14 @@ router.post('/login', (req, res) => {
 //POST method for join api
 router.post('/join', verifyToken, (req, res) => {
     let join = req.body;
-    //find the event, add the user name into the member list, update the member numbers
+    //find the event, add the user name into the member list, the userID to the ID list, update the member numbers
     Event.findOne({ _id: join.event }, (err, eventJoin) => {
         if (!eventJoin) {
-            console.log(join.event + "Not Found")
+            res.json(join.event + "Not Found")
         }
         else {
             eventJoin.members.push(join.user);
+            eventJoin.membersID.push(join.userID);
             eventJoin.amount = eventJoin.members.length;
             eventJoin.save();
         }
@@ -107,12 +108,13 @@ router.post('/quit', verifyToken, (req, res) => {
     let quit = req.body;
     Event.findOne({ _id: quit.event }, (err, eventQuit) => {
         if (!eventQuit) {
-            console.log(quit.event + "Not Found")
+            res.json(quit.event + "Not Found")
         }
-        // find the event and delete the user name from the member list
+        // find the event and delete the user name from the member list, delete userID from ID list
         else {
-            if (eventQuit.members.indexOf(quit.user) !== -1) {
-                eventQuit.members.splice(eventQuit.members.indexOf(quit.user), 1);
+            if (eventQuit.membersID.indexOf(quit.userID) !== -1) {
+                eventQuit.members.splice(eventQuit.membersID.indexOf(quit.userID), 1);
+                eventQuit.membersID.splice(eventQuit.membersID.indexOf(quit.userID), 1);
                 eventQuit.amount = eventQuit.members.length;
                 eventQuit.save();
             }
