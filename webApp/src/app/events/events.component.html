@@ -12,10 +12,10 @@
         <p class="card-text">Location: {{event.location}}</p>
       </div>
       <div class="card-footer text-muted">
-        <!--show quit button if the user exists in the member list, join button if not, pass the event id and user name to join and quit function-->
-        <button *ngIf="!event.members.includes(userInfoData.firstName)" (click)="join(event._id,userInfoData.firstName)"
+        <!--show quit button if the userID exists in the membersID list, join button if not, pass the event id, user name and userID to join function, pass event id and userID to quit function-->
+        <button *ngIf="!event.membersID.includes(userInfoData.userId)" (click)="join(event._id,userInfoData.firstName,userInfoData.userId)"
           id="join" class="btn btn-lg btn-primary btn-block" type="submit">Join</button>
-        <button *ngIf="event.members.includes(userInfoData.firstName)" (click)="quit(event._id,userInfoData.firstName)"
+        <button *ngIf="event.membersID.includes(userInfoData.userId)" (click)="quit(event._id,userInfoData.userId)"
           id="quit" class="btn btn-lg btn-primary btn-block " type="submit">Quit</button>
       </div>
     </div>
