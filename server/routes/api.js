@@ -88,7 +88,7 @@ router.post('/login', (req, res) => {
     })
 })
 //POST method for join api
-router.post('/join', (req, res) => {
+router.post('/join', verifyToken, (req, res) => {
     let join = req.body;
     //find the event, add the user name into the member list, update the member numbers
     Event.findOne({ _id: join.event }, (err, eventJoin) => {
@@ -103,7 +103,7 @@ router.post('/join', (req, res) => {
     })
 })
 //POST method for quit api
-router.post('/quit', (req, res) => {
+router.post('/quit', verifyToken, (req, res) => {
     let quit = req.body;
     Event.findOne({ _id: quit.event }, (err, eventQuit) => {
         if (!eventQuit) {
@@ -183,7 +183,7 @@ router.post('/userInfoUpdate', verifyToken, (req, res) => {
     })
 })
 //Get method for user detail information
-router.get('/user/:id', (req, res) => {
+router.get('/user/:id', verifyToken, (req, res) => {
     let id = req.params.id
     UserInfo.findOne({ "userId": id }, function (err, userInfo) {
         if (err) return next(err);
