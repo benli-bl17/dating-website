@@ -14,7 +14,7 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 After login, you can go to chatroom page to have a online realtime chat with our other users.
 
 # Update Function
-if you change your first name after join in the events. The member list will not update your name automatically</br>
+If you change your first name after join in the events. The member list will not update your name automatically</br>
 You have to quit to delete the previous name and re-join to present the current name</br>
 
 # Developers
