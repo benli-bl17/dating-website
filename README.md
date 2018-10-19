@@ -19,7 +19,7 @@ Cheng Zhu 13000359</br>
 Yilun Chen 12781961</br>
 Bin Li 12520817</br>
 
-# How to run the application</br>
+# How to Run the Application</br>
 ## Database
 Run `cd server` in terminal.</br>
 Run `node server.js` for a express server.</br>
