@@ -10,8 +10,8 @@ This prokject is based on the M(mangodb)E(express)A(Angular)N(Node) structure.</
 This project developed by Angular2. Make sure you have installed node.js.</br>
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.1.2.
 
-#Interesting function
-After login, you can go to chatroom page to have a online realtime chat with our other users
+# Interesting function
+After login, you can go to chatroom page to have a online realtime chat with our other users.
 
 # Developers
 
