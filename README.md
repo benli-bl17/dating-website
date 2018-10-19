@@ -10,10 +10,10 @@ This prokject is based on the M(mangodb)E(express)A(Angular)N(Node) structure.</
 This project developed by Angular2. Make sure you have installed node.js.</br>
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.1.2.
 
-# Interesting function
+# Interesting Function
 After login, you can go to chatroom page to have a online realtime chat with our other users.
 
-# Update function
+# Update Function
 if you change your first name after join in the events. The member list will not update your name automatically</br>
 You have to quit to delete the previous name and re-join to present the current name</br>
 
