@@ -18,7 +18,6 @@ import { TokenInterceptorService } from './token-interceptor.service';
 import { EventService } from './event.service';
 import { UserInfoComponent } from './user/user-info/user-info.component';
 import { UserComponent } from './user/user.component';
-import { FooterComponent } from './footer/footer.component';
 import { ChatroomComponent } from './chatroom/chatroom.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 
@@ -32,7 +31,6 @@ import { NotFoundComponent } from './not-found/not-found.component';
     MembersComponent,
     UserInfoComponent,
     UserComponent,
-    FooterComponent,
     ChatroomComponent,
     NotFoundComponent
   ],
