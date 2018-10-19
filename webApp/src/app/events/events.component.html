@@ -16,7 +16,7 @@
         <button *ngIf="!event.membersID.includes(userInfoData.userId)" (click)="join(event._id,userInfoData.firstName,userInfoData.userId)"
           id="join" class="btn btn-lg btn-primary btn-block" type="submit">Join</button>
         <button *ngIf="event.membersID.includes(userInfoData.userId)" (click)="quit(event._id,userInfoData.userId)"
-          id="quit" class="btn btn-lg btn-primary btn-block " type="submit">Quit</button>
+          id="quit" class="btn btn-lg btn-success btn-block " type="submit">Quit</button>
       </div>
     </div>
   </div>
