@@ -11,7 +11,7 @@ This project developed by Angular2. Make sure you have installed node.js.</br>
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.1.2.
 
 # Interesting Function
-After login, you can go to chatroom page to have a online realtime chat with our other users.
+After login, you can go to chatroom page to have an online realtime chat with our other users.
 
 # Update Function
 If you change your first name after join in the events. The member list will not update your name automatically</br>
