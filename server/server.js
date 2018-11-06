@@ -2,7 +2,7 @@ const express = require('express');
 const app = express();
 const bodyParser = require('body-parser')
 const cors = require('cors')
-const PORT = 3000
+const port = process.env.PORT || 3000
 const api = require('./routes/api')
 
 app.use(cors())
@@ -15,6 +15,6 @@ app.get('/', function (req, res) {
     res.send('HELLO FORM SERVER')
 })
 
-app.listen(PORT, function () {
-    console.log('SERVER RUNNING ON LOCALHOST:' + PORT)
+app.listen(port, function () {
+    console.log('SERVER RUNNING ON LOCALHOST:' + port)
 })
